@@ -19,3 +19,8 @@ class BgirlsItem(scrapy.Item):
     _id = scrapy.Field()
 
     pass
+
+class BgirlsDetailItem(scrapy.Item):
+    description = scrapy.Field()
+    topic_figure = scrapy.Field()
+    albumLink = scrapy.Field()
