@@ -17,10 +17,11 @@ class BgirlsItem(scrapy.Item):
     starcount = scrapy.Field()
     currentURL = scrapy.Field()
     _id = scrapy.Field()
+    detailItem = scrapy.Field()
 
     pass
 
-class BgirlsDetailItem(scrapy.Item):
-    description = scrapy.Field()
-    topic_figure = scrapy.Field()
-    albumLink = scrapy.Field()
+# class BgirlsDetailItem(scrapy.Item):
+#     description = scrapy.Field()
+#     topic_figure = scrapy.Field()
+#     albumLink = scrapy.Field()

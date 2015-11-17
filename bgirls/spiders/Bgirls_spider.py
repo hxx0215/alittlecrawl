@@ -36,6 +36,7 @@ class bgirlsSpider(scrapy.Spider):
                     item['src'] = img.xpath('@src').extract()
                     item['detailURL'] = details.xpath('@href').extract()
                     item['_id'] = response.url + ''.join(item['src'])
+                    # item['detailItem'] =
                     print item
                     yield item
             # self.index += 1
@@ -55,3 +56,6 @@ class bgirlsSpider(scrapy.Spider):
             nextURL = '/'.join(arr)
             yield  scrapy.Request(nextURL,callback=self.parse,meta={'a':1})
 
+    def parse_detailItem(self, response):
+        mainItem = response.request.meta['mainItem']
+        yield mainItem
