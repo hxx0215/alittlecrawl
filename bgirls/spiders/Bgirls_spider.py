@@ -9,20 +9,10 @@ class bgirlsSpider(scrapy.Spider):
     name = "bgirlsSpider"
     allowed_domain = ["dbmeinv.com"]
     start_urls = [
-        # "http://www.doubanmeinv.com",
-        # "http://www.doubanmeinv.com/daxiongmei/list_1_1.html",
-        # "http://www.doubanmeinv.com/xiaoqiaotun/list_2_1.html",
-        # "http://www.doubanmeinv.com/heisiwa/list_3_1.html",
-        # "http://www.doubanmeinv.com/meituikong/list_4_1.html",
-        # "http://www.doubanmeinv.com/youyanzhi/list_5_1.html",
-        # "http://www.doubanmeinv.com/dazahui/list_6_1.html"
-        # http://dbhaohaizi.host3v.com/fuli1.html
         "http://www.dbmeinv.com/dbgroup/show.htm?cid=0&pager_offset=1",
         "http://www.dbmeinv.com/dbgroup/today.htm",
         "http://www.dbmeinv.com/dbgroup/rank.htm"
     ]
-    # mapName = ['flag','daxiongmei','xiaoqiaotun','heisiwa','meituikong','youyanzhi','dazahui']
-    # index = [0,1,1,1,1,1,1]
     cid = 0
     page_offset = [1,1,1]
     mapName = ["/dbgroup/show.htm","/dbgroup/today.htm","/dbgroup/rank.htm"]
@@ -89,8 +79,10 @@ class bgirlsSpider(scrapy.Spider):
                 if self.cid == 0:
                     self.cid = 1
                 self.cid += 1
+                if self.cid > 8:
+                    return
                 self.page_offset[0] = 1
-                nextURL = "http://www.dbmeinv.com/dbgroup/show.htm?cid=%d&pager_offset=%d" %(self.cid,self.page_offset)
+                nextURL = "http://www.dbmeinv.com/dbgroup/show.htm?cid=%d&pager_offset=%d" %(self.cid,self.page_offset[0])
                 yield scrapy.Request(nextURL,callback=self.parse,headers=self.randomHead())
 
 

@@ -70,7 +70,7 @@ MONGODB_PORT = 27017
 MONGODB_DB = "dbgirls"
 MONGODB_COLLECTION = "MainPage"
 COOKIES_ENABLED=False
-DOWNLOAD_DELAY = 3.0
+# DOWNLOAD_DELAY = 3.0
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
