@@ -60,7 +60,7 @@ class bgirlsSpider(scrapy.Spider):
                     item['title'] = img.xpath('@title').extract()
                     item['src'] = img.xpath('@src').extract()
                     item['detailURL'] = details.xpath('@href').extract()
-                    item['_id'] = "".join(item['detailURL'])
+                    item['_id'] = "".join(item['src'])
                     print item
                     yield item
         if liResults:#next_page
