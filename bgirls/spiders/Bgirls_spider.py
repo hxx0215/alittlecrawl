@@ -86,16 +86,6 @@ class bgirlsSpider(scrapy.Spider):
                 yield scrapy.Request(nextURL,callback=self.parse,headers=self.randomHead())
 
 
-        # url = response.url
-        # arr = url.split('/')
-        # if len(arr) > 3:
-        #     urlIndex = self.mapName.index(arr[3])
-        #     self.index[urlIndex] += 1
-        #     nextIndexURL = 'list_%d_%d.html' % (urlIndex,self.index[urlIndex])
-        #     arr[-1] = nextIndexURL
-        #     nextURL = '/'.join(arr)
-        #     yield  scrapy.Request(nextURL,callback=self.parse,meta={'a':1})
-
     def parse_detailItem(self, response):
         mainItem = response.request.meta['mainItem']
         yield mainItem
