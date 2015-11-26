@@ -49,8 +49,6 @@ class bgirlsSpider(scrapy.Spider):
                 ]
 
     def parse(self, response):
-        # if response.request.meta:
-        #     print response.meta
         liResults = scrapy.Selector(response).xpath('//li[@class="span3"]')
         for li in liResults:
             for details in li.xpath('.//a[@target="_topic_detail"]'):
